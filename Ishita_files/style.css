@@ -1828,7 +1828,7 @@ form label {
 
 @media screen and (max-width:768px) {
 	.fh5co-nav-toggle {
-		display: block
+		display: none;
 	}
 }
 
