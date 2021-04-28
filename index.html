@@ -18,7 +18,7 @@ body {
     line-height: 1.7;
     color: #828282;
     background: #fff;
-    background-image: url(Ishita_files/assets/images/img_bg_2.jpg);
+    background-image: url(ishita_files/assets/images/img_bg_2.jpg);
     background-position: 0px 0px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,8 +32,11 @@ body {
   body {
     /* The file size of this background image is 93% smaller
      * to improve page load speed on mobile internet connections */
-    background-image: url(Ishita_files/assets/images/img_bg_2.jpg);
+    background-image: url(ishita_files/assets/images/img_bg_2.jpg);
     background-position: -150px 0px;
+  }
+  #page {
+    height:100%;
   }
 
   .fh5co-nav #fh5co-logo {
@@ -54,17 +57,27 @@ body {
     </div>
   </nav>
   <header id="fh5co-header" class="fh5co-cover" role="banner" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
           <div class="display-t">
             <div class="display-tc animate-box fadeIn animated-slow" data-animate-effect="fadeIn">
               <h1>Yogesh &amp; Ishita</h1>
-              <h2>Congratulations to the Married Couple.<br>
+              <h2 style="
+              background-color: rgb(0,0,0,0.35);
+              padding: 5px;
+              border-radius: 5px;
+              ">Congratulations to the Married Couple.<br>
               Wishing you <code>joy</code>, <code>love</code> and <code>happiness</code> as you begin your new life together.
               Although, we could not be there for you, but we showered you with all our blessings and wishes.</h2>
-              <p><a href="#" class="btn btn-default btn-sm">Open your Gift</a></p>
+              <p><a href="#" class="btn btn-default btn-sm" id="giftButton">Open your Gift</a></p>
+              <div class="col-md-offset-4 col-md-4 col-sm-4" id="passwordSection">
+                <div class="form-group">
+                  <label for="email" class="sr-only">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Enter password"><br>
+                  <button type="submit" class="btn btn-default" id="amzn_link">Go</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -91,7 +104,24 @@ body {
 <script src="./Ishita_files/jquery.stellar.min.js"></script>
 <script src="./Ishita_files/jquery.magnific-popup.min.js"></script>
 <script src="./Ishita_files/simplyCountdown.js"></script>
-<script>var d=new Date((new Date).getTime()+7806e7);simplyCountdown(".simply-countdown-one",{year:d.getFullYear(),month:d.getMonth()+1,day:d.getDate()}),$("#simply-countdown-losange").simplyCountdown({year:d.getFullYear(),month:d.getMonth()+1,day:d.getDate(),enableUtc:!1});</script>
+<script>
+  const baseUrl = 'https://www.amazon.in/';
+  const apiEndpoint = 'g/';
+  const coupon = 'PKP7BJU8F3MN1CET';
+  const queryParam1 = '?_encoding=UTF8';
+  const queryParam2 = '&asin=B00LFQRBT6';
+  $('#passwordSection').hide();
+  $("#giftButton").on('click', function (){
+    $('#passwordSection').show();
+  });
+
+  $('#amzn_link').on('click', () => {
+    if($('#password').val() === 'panchvati')
+    window.location.href = baseUrl+apiEndpoint+coupon+queryParam1+queryParam2;
+    else
+    alert('Wrong password');
+  });
+</script>
 <script src="./Ishita_files/main.js"></script>
 
 </body></html>
