@@ -117,13 +117,14 @@ body {
   const coupon = 'PKP7BJU8F3MN1CET';
   const queryParam1 = '?_encoding=UTF8';
   const queryParam2 = '&asin=B00LFQRBT6';
+  $('.js-fh5co-nav-toggle').hide();
   $('#passwordSection').hide();
   $("#giftButton").on('click', function (){
     $('#passwordSection').show();
   });
 
   $('#amzn_link').on('click', () => {
-    if($('#password').val() === 'panchvati')
+    if($('#password').val() === 'yughishq')
     window.location.href = baseUrl+apiEndpoint+coupon+queryParam1+queryParam2;
     else
     alert('Wrong password');
