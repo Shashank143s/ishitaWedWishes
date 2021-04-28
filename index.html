@@ -126,8 +126,11 @@ body {
   $('#amzn_link').on('click', () => {
     if($('#password').val() === 'yughishq')
     window.location.href = baseUrl+apiEndpoint+coupon+queryParam1+queryParam2;
-    else
-    alert('Wrong password');
+    else {
+      setTimeout(() => {
+        alert('Wrong password');
+      },500);
+    }
   });
 </script>
 <script src="./Ishita_files/main.js"></script>
